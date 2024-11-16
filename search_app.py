@@ -25,7 +25,7 @@ def search():
     :return: Extracts the title <h3> and link <a> for each result and adds them to the list of results (search_results).
     """
     search_query = request.form['search_query']
-    google_url = f"https://www.google.com/search?q={search_query}"
+    google_url = f"https://www.google.com/search?q={search_query}&hl=cs&gl=cz"
     headers = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.96 Safari/537.36"}
 
     response = requests.get(google_url, headers=headers)
