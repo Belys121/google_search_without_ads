@@ -46,7 +46,7 @@ def search():
             link = search_reslut.find('a')['href'] if search_reslut.find('a') else 'No Link Found'
             search_results.append({'title': title, 'link': link}) # save as dictionary
         except AttributeError as e:
-            print(f"Chyba při extrakci výsledku: {e}")
+            print(f"Error in getting the result: {e}")
             continue
 
     save_results_to_files(search_results, 'soup_google_search_results.json', 'soup_google_search_results.csv')
@@ -66,7 +66,6 @@ def save_results_to_files(results, json_filename, csv_filename):
     with open(json_filename, 'w', encoding='utf-8') as json_file:
         json.dump(results, json_file, ensure_ascii=False, indent=4)
 
-    # Uložení do CSV souboru
     with open(csv_filename, 'w', newline='', encoding='utf-8') as csv_file:
         writer = csv.DictWriter(csv_file, fieldnames=['title', 'link'])
         writer.writeheader()
