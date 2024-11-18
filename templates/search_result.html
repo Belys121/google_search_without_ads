@@ -17,6 +17,8 @@
                 </li>
             {% endfor %}
         </ul>
+        <a href="{{ url_for('static', filename='soup_google_search_results.json') }}" class="btn btn-secondary mt-4" download>Download JSON</a>
+        <a href="{{ url_for('static', filename='soup_google_search_results.csv') }}" class="btn btn-secondary mt-4" download>Download CSV</a>
         <a href="/" class="btn btn-secondary mt-4">Back to Search</a>
     </div>
     <!-- Bootstrap JS, Popper.js, and jQuery -->

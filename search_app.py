@@ -63,10 +63,13 @@ def save_results_to_files(results, json_filename, csv_filename):
     :param csv_filename: soup_google_search_results.csv
     :return: None. This function does not return anything, it only saves results to files.
     """
-    with open(json_filename, 'w', encoding='utf-8') as json_file:
+    json_path = f"static/{json_filename}"
+    csv_path = f"static/{csv_filename}"
+
+    with open(json_path, 'w', encoding='utf-8') as json_file:
         json.dump(results, json_file, ensure_ascii=False, indent=4)
 
-    with open(csv_filename, 'w', newline='', encoding='utf-8') as csv_file:
+    with open(csv_path, 'w', newline='', encoding='utf-8') as csv_file:
         writer = csv.DictWriter(csv_file, fieldnames=['title', 'link'])
         writer.writeheader()
         writer.writerows(results)
