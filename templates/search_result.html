@@ -10,15 +10,19 @@
 <body>
     <div class="container mt-4">
         <h1 class="text-center">Search Results</h1>
-        <ul class="list-group">
-            {% for result in results %}
-                <li class="list-group-item">
-                    <a href="{{ result.link }}" target="_blank">{{ result.title }}</a>
-                </li>
-            {% endfor %}
-        </ul>
+        {%  if results %}
+            <ul class="list-group">
+                {% for result in results %}
+                    <li class="list-group-item">
+                        <a href="{{ result.link }}" target="_blank">{{ result.title }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
         <a href="{{ url_for('static', filename='soup_google_search_results.json') }}" class="btn btn-primary mt-4" download>Download JSON</a>
         <a href="{{ url_for('static', filename='soup_google_search_results.csv') }}" class="btn btn-primary mt-4" download>Download CSV</a>
+        {% else %}
+            <p class="text-center text-danger mt-4">No results found. Please try searching for something else.</p>
+        {% endif %}
         <a href="/" class="btn btn-secondary mt-4">Back to Search</a>
     </div>
     <!-- Bootstrap JS, Popper.js, and jQuery -->

@@ -29,7 +29,7 @@ def search():
     headers = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.96 Safari/537.36"}
 
     response = requests.get(google_url, headers=headers)
-    time.sleep(2)
+    time.sleep(2) # waiting for asynch result from google
     google_response = BeautifulSoup(response.text, 'html.parser')
 
     # Google blocking check
